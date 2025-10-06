@@ -21,12 +21,6 @@
     --color-primary-800: #0e6d3b;
     --color-primary-900: #0e5933;
     --color-primary-950: #01321a;
-    /* 
-    --shadow-primary: 0px 1px 2px 0px var(--ColorsEffectsShadowsshadow-xs);
-
-box-shadow: 0px -2px 0px 0px var(--ColorsEffectsShadowsshadow-skeumorphic-inner) inset;
-
-box-shadow: 0px 0px 0px 1px var(--ColorsEffectsShadowsshadow-skeumorphic-inner-border) inset; */
 }
 
 @theme inline {
