@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
+import { useEffect, useState } from 'react';
 import { buttonVariants } from '../ui/button';
 import NavbarDrawer from './navbar-drawer';
 
@@ -27,13 +28,29 @@ const navItems = [
 ];
 
 const Navbar = () => {
+    // State to track if the page is scrolled
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    // Effect to add and remove the scroll event listener
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <nav className="border-b border-primary-100 bg-white">
+        <nav className={cn('fixed top-0 right-0 left-0 w-full transition-all duration-500', isScrolled && 'bg-white')}>
             <div className="container mx-auto flex items-center justify-between gap-4 p-4">
                 <Link href={'/'}>
                     <img src="/images/logo.svg" alt="Logo" className="h-8 w-8" />
                 </Link>
-                <div className="hidden flex-1 justify-center gap-4 lg:flex">
+                <div className="hidden flex-1 items-center justify-center gap-4 lg:flex">
                     {navItems.map((item) => (
                         <Link href={item.href} className="text-sm font-semibold text-primary-950 lg:text-base" key={item.label}>
                             {item.label}

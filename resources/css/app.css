@@ -21,6 +21,12 @@
     --color-primary-800: #0e6d3b;
     --color-primary-900: #0e5933;
     --color-primary-950: #01321a;
+
+    /* Tertiary */
+    --color-tertiary-600: #535862;
+
+    /* Quarternary */
+    --color-quaternary-500: #717680;
 }
 
 @theme inline {
