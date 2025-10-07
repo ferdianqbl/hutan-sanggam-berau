@@ -28,8 +28,10 @@ const HomeVisionMission = () => {
         <div className="container mx-auto px-4 py-20 lg:py-24" id="vision-mission">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
                 <div className="flex flex-col gap-5">
-                    <div className="flex items-center gap-2 text-primary-950">
-                        <EyeIcon />
+                    <div className="flex items-center gap-4 text-primary-950">
+                        <div className="rounded-md bg-[#FAFAFA] p-3">
+                            <EyeIcon />
+                        </div>
                         <h2 className="text-2xl font-semibold lg:text-4xl">Visi</h2>
                     </div>
                     <p className="text-sm text-tertiary-600 lg:text-base">
@@ -38,14 +40,16 @@ const HomeVisionMission = () => {
                     </p>
                 </div>
                 <div className="flex flex-col gap-5">
-                    <div className="flex items-center gap-2 text-primary-950">
-                        <TargetIconSvg />
+                    <div className="flex items-center gap-4 text-primary-950">
+                        <div className="rounded-md bg-[#FAFAFA] p-3">
+                            <TargetIconSvg />
+                        </div>
                         <h2 className="text-2xl font-semibold lg:text-4xl">Misi</h2>
                     </div>
 
                     <div className="grid grid-cols-1 gap-4">
                         {missionData.map((item, index) => (
-                            <div key={item.title + index} className={cn('flex gap-4 rounded-xl p-6', index === 2 && 'bg-primary-900')}>
+                            <div key={item.title + index} className={cn('flex gap-4 rounded-xl bg-[#FAFAFA] p-6', index === 2 && 'bg-primary-900')}>
                                 <span className={cn('inline-block text-2xl text-primary-900 lg:text-4xl', index === 2 && 'text-white')}>
                                     0{index + 1}
                                 </span>

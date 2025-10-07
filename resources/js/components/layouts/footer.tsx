@@ -45,8 +45,8 @@ const footerSocialData = [
 
 const Footer = () => {
     return (
-        <footer className="bg-primary-950 text-white">
-            <div className="container mx-auto flex flex-col gap-16 px-4 py-8">
+        <footer className="bg-primary-950 pt-20 text-white" id="contact">
+            <div className="container mx-auto flex flex-col gap-16 px-4 pb-8">
                 <div className="space-y-4">
                     <h1 className="text-base font-semibold lg:text-2xl">Hubungi Kami</h1>
                     <p className="text-sm text-primary-50">Kami terbuka untuk kerja sama, pertanyaan, maupun kunjungan langsung.</p>
@@ -86,7 +86,7 @@ const Footer = () => {
                     <div className="flex flex-1 items-center justify-center">
                         <img src="/images/logo.svg" alt="Logo" className="h-8 w-8" />
                     </div>
-                    <p className="text-center text-sm text-primary-50 lg:text-end">Copyright © PT Hutan Sanggam Berau, 2025</p>
+                    <p className="text-center text-sm text-primary-50 lg:text-end">Copyright © PT Hutan Sanggam Berau, {new Date().getFullYear()}</p>
                 </div>
             </div>
         </footer>

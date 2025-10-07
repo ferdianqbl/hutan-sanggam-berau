@@ -45,7 +45,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={cn('fixed top-0 right-0 left-0 w-full transition-all duration-500', isScrolled && 'bg-white')}>
+        <nav className={cn('fixed top-0 right-0 left-0 z-50 w-full transition-all duration-500', isScrolled && 'bg-white')}>
             <div className="container mx-auto flex items-center justify-between gap-4 p-4">
                 <Link href={'/'}>
                     <img src="/images/logo.svg" alt="Logo" className="h-8 w-8" />

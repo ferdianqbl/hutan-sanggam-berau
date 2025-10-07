@@ -1,6 +1,5 @@
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Link } from '@inertiajs/react';
 import { ArrowDownIcon } from 'lucide-react';
 
 const HomeHero = () => {
@@ -15,8 +14,8 @@ const HomeHero = () => {
                     </p>
                 </div>
 
-                <Link
-                    href="/"
+                <a
+                    href="#about"
                     className={cn(
                         buttonVariants({
                             variant: 'default',
@@ -24,10 +23,15 @@ const HomeHero = () => {
                     )}
                 >
                     Pelajari Selengkapnya <ArrowDownIcon />
-                </Link>
+                </a>
             </div>
             <div className="container mx-auto flex min-h-screen flex-col items-center justify-center gap-12 px-4 py-12">
-                <div className="aspect-video w-full rounded-lg bg-black" />
+                {/* <div className="aspect-video max-h-[500px] w-full rounded-lg bg-black" /> */}
+                <video controls className="aspect-video max-h-[500px] w-full rounded-lg bg-black">
+                    {/* The path starts from the public folder */}
+                    <source src="/videos/banner-video.mp4" type="video/mp4" />
+                    Sorry, your browser doesn't support embedded videos.
+                </video>
             </div>
         </div>
     );
