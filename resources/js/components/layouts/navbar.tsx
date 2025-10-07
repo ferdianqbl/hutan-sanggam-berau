@@ -52,9 +52,9 @@ const Navbar = () => {
                 </Link>
                 <div className="hidden flex-1 items-center justify-center gap-4 lg:flex">
                     {navItems.map((item) => (
-                        <Link href={item.href} className="text-sm font-semibold text-primary-950 lg:text-base" key={item.label}>
+                        <a href={item.href} className="text-sm font-semibold text-primary-950 lg:text-base" key={item.label}>
                             {item.label}
-                        </Link>
+                        </a>
                     ))}
                 </div>
                 <Link
