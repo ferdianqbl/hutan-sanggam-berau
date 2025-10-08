@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
+import { motion, useScroll } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { buttonVariants } from '../ui/button';
 import NavbarDrawer from './navbar-drawer';
@@ -28,6 +29,7 @@ const navItems = [
 ];
 
 const Navbar = () => {
+    const { scrollYProgress } = useScroll();
     // State to track if the page is scrolled
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -45,32 +47,48 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={cn('fixed top-0 right-0 left-0 z-50 w-full transition-all duration-500', isScrolled && 'bg-white')}>
-            <div className="container mx-auto flex items-center justify-between gap-4 p-4">
-                <Link href={'/'}>
-                    <img src="/images/logo.svg" alt="Logo" className="h-8 w-8" />
-                </Link>
-                <div className="hidden flex-1 items-center justify-center gap-4 lg:flex">
-                    {navItems.map((item) => (
-                        <a href={item.href} className="text-sm font-semibold text-primary-950 lg:text-base" key={item.label}>
-                            {item.label}
-                        </a>
-                    ))}
+        <>
+            <motion.div
+                id="scroll-indicator"
+                style={{
+                    scaleX: scrollYProgress,
+                    position: 'fixed',
+                    zIndex: 9999,
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 3,
+                    originX: 0,
+                    backgroundColor: '#12d56c',
+                }}
+            />
+            <nav className={cn('fixed top-0 right-0 left-0 z-50 w-full transition-all duration-500', isScrolled && 'bg-white')}>
+                <div className="container mx-auto flex items-center justify-between gap-4 p-4">
+                    <Link href={'/'}>
+                        <img src="/images/logo.svg" alt="Logo" className="h-8 w-8" />
+                    </Link>
+                    <div className="hidden flex-1 items-center justify-center gap-4 lg:flex">
+                        {navItems.map((item) => (
+                            <a href={item.href} className="text-sm font-semibold text-primary-950 lg:text-base" key={item.label}>
+                                {item.label}
+                            </a>
+                        ))}
+                    </div>
+                    <Link
+                        href={'#'}
+                        className={cn(
+                            buttonVariants({
+                                variant: 'default',
+                            }),
+                            'ml-auto hidden lg:inline-flex',
+                        )}
+                    >
+                        Hubungi Kami
+                    </Link>
+                    <NavbarDrawer navItems={navItems} />
                 </div>
-                <Link
-                    href={'#'}
-                    className={cn(
-                        buttonVariants({
-                            variant: 'default',
-                        }),
-                        'ml-auto hidden lg:inline-flex',
-                    )}
-                >
-                    Hubungi Kami
-                </Link>
-                <NavbarDrawer navItems={navItems} />
-            </div>
-        </nav>
+            </nav>
+        </>
     );
 };
 
